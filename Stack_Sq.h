@@ -14,11 +14,11 @@ typedef struct{
     int incrementsize;
 } SqStack;
 
-void InitStack_Sq(SqStack &S){
-    S.elem = new SElemType[SIZE];
+void InitStack_Sq(SqStack &S, int size = SIZE, int incrementsize = INCREMENTSIZE){
+    S.elem = new SElemType[size];
     S.top = -1;
-    S.stacksize = SIZE;
-    S.incrementsize = INCREMENTSIZE;
+    S.stacksize = size;
+    S.incrementsize = incrementsize;
 }
 
 void DestroyStack_Sq(SqStack &S){

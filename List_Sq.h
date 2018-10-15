@@ -17,11 +17,11 @@ typedef struct my_SqList{
     int incrementsize;
 } SqList;
 
-void InitList_Sq(SqList &L){            //初始化  时间复杂度O(1)   空间复杂度O(1)
-    L.elem = new ElemType[LIST_INIT_SIZE];
+void InitList_Sq(SqList &L, int list_init_size = LIST_INIT_SIZE, int listincreament = LISTINCREAMENT){            //初始化  时间复杂度O(1)   空间复杂度O(1)
+    L.elem = new ElemType[list_init_size];
     L.length = 0;
-    L.listsize = LIST_INIT_SIZE;
-    L.incrementsize = LISTINCREAMENT;
+    L.listsize = list_init_size;
+    L.incrementsize = listincreament;
 }
 
 int LocalElem_Sq(SqList L, ElemType e){            //查找  时间复杂度O(1)   空间复杂度O(1)
