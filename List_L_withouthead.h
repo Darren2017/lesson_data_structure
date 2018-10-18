@@ -65,6 +65,7 @@ void ListDelete_L(LinkList &L, int i, ElemType &e){     //删除
         if(!p -> next){
             LNode *q = p -> next;
             p -> next = q -> next;
+            e = q -> data;
             delete q;
         }else{
             cout << "i值不合法" << endl;
