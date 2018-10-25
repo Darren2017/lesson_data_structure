@@ -38,7 +38,7 @@ public:
 int main()
 {
     string input;
-    cout << "请输入括号组合:  ";
+    cout << "请输入括号组合:   ";
     cin >> input;
     Solution solution;
     bool ans = solution.isValid(input);
