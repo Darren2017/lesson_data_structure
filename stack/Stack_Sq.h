@@ -1,7 +1,7 @@
 #include<iostream>
 #include <iomanip>
 
-#define SElemType int
+#define SElemType char
 #define SIZE 100
 #define INCREMENTSIZE 20
 
@@ -61,6 +61,8 @@ void Push_Sq(SqStack &S, SElemType &e){
         tem[++S.top] = e;
         delete [] S.elem;
         S.elem = tem;
+    }else{
+        S.elem[++S.top] = e;
     }
 }
 

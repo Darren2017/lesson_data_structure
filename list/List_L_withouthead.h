@@ -113,7 +113,7 @@ int ListLength_L(LinkList L){      //长度
     return i;
 }
 
-void GetElem_L(LinkList L, int i, ElemType &e){        //取值
+void GetElem_L(LinkList L, int i, ElemType &e){        //取值    改成先判断i的值是否合法
     LNode *p = L;
     for(int j = 1; j < i && p -> next; j++){
         p = p -> next;

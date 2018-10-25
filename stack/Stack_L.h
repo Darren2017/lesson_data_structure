@@ -1,7 +1,7 @@
 #include<iostream>
 #include <iomanip>
 
-#define ElemType int
+#define ElemType char
 
 using namespace std;
 
