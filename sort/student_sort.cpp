@@ -1,5 +1,5 @@
 #include<iostream>
-#include <iomanip>
+#include<iomanip>
 #include<cstring>
 
 #define RADIX 10
@@ -8,6 +8,7 @@ using namespace std;
 
 typedef struct{
     string name, id;
+    int score;
     int keys[10];
     int numkey;
 }RcdType;
@@ -17,21 +18,24 @@ void RadixPass(RcdType A[], RcdType B[], int cnt, int i);
 
 int main()
 {
-    RcdType student[10];
     int n, score;
-    cout << "请输入学生人数n（n <= 10)：" << endl;
+    cout << "请输入学生人数n：" << endl;
     cin >> n;
+    RcdType student[n];
     for(int i = 0; i < n; i++){
         cout << "请输入学生" << i + 1 << "的学号   名字   成绩" << endl;
         cin >> student[i].id >> student[i].name >> score;
-        student[i].keys[1] = score % 10;
-        student[i].keys[0] = score / 10;
+        student[i].score = score;
+        for(int j = 0; score; j++){
+            student[i].keys[j] = score % 10;
+            score /= 10;
+        }
         student[i].numkey = 2;
     }
     RadixSort(student, n);
     cout << "学号 姓名 成绩" << endl;
     for(int i = n - 1; i >= 0; i--){
-        cout << student[i].id << "   " << student[i].name << "   " << student[i].keys[0] << student[i].keys[1] <<  endl;
+        cout << student[i].id << "   " << student[i].name << "   " << student[i].score <<  endl;
     }
     return 0;
 }
