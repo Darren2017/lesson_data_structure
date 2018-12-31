@@ -51,8 +51,6 @@ int main()
     return 0;
 }
 
-//9 7 3 1 4 8 2 1 7 2 8 3 3 1 0 5 2 3 4 3 5 6 2 2 6 4
-
 
 void division(int **R, int n, int result[], int &sum){
     int pre = n, group = 0, clash[n];
@@ -81,4 +79,8 @@ void division(int **R, int n, int result[], int &sum){
         pre = i;
     }
     sum = group;
+    DestroyQueue_Sq(Q);
 }
+
+// 测试用例
+//9 7 3 1 4 8 2 1 7 2 8 3 3 1 0 5 2 3 4 3 5 6 2 2 6 4

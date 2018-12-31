@@ -75,26 +75,32 @@ void RadixPass(RcdType A[], RcdType B[], int cnt, int i){
 }
 
 void RadixPass2(RcdType A[], RcdType B[], int cnt, int i){
-    int count[11];
+    int count[11], num[10];
     for(int j = 0; j < RADIX; j++){
         count[j] = 0;
+        num[j] = 0;
     }
     for(int k = 0; k < cnt; k++){
         count[A[k].keys[i] - '0']++;
+        num[A[k].keys[i] - '0']++;
     }
     for(int j = RADIX - 2; j >= 0; j--){
         count[j] = count[j + 1] +count[j];
     }
+    for(int j = 0; j < RADIX; j++){
+        count[j] -= num[j] - 1;
+    }
     for(int k = 0; k < cnt; k++){
         int j = A[k].keys[i] - '0';
         B[count[j] - 1] = A[k];
-        count[j]--;
+        count[j]++;
     }
 }
 
 /* 测试用例
-3
+4
 2017211000 张三 072
-2017211001 李四 482
-2017211002 王五 993
+2017211001 李四 382
+2017211002 王五 083
+2017211003 佚名 334
 */
