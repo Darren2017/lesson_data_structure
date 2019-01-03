@@ -12,8 +12,8 @@ typedef char VertexType;
 
 typedef struct
 {
-    VertexType *vexs;
-    EdgeType **arcs;
+    VertexType *vexs;           //存放元素信息
+    EdgeType **arcs;            //邻接矩阵
     int numNodes, numEdges;
 } MGraph;
 

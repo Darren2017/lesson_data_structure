@@ -106,7 +106,7 @@ void dijkstra(MGraph& MG){
         a.insert(0, 1, MG.vexs[start]);
         b.insert(0, 1, MG.vexs[i]);
         MG.dist[i].visited = false;
-        MG.dist[i].value = MG.arcs[start][i];
+        MG.dist[i].value = MG.arcs[start][i];               //所有value都是从选定结点到当前结点的权重
         MG.dist[i].path = "v" + a + "-->v" + b;
     }
     MG.dist[start].visited = true;          //源点进入已选择集合
@@ -121,7 +121,7 @@ void dijkstra(MGraph& MG){
                 mmin = MG.dist[i].value;
             }
         }
-        MG.dist[now].visited = true;
+        MG.dist[now].visited = true;                //进入集合
         cnt++;
         for(int i = 0; i < MG.numNodes; i++){           //维护dist数组，如果经过最短路径集合的路径小于直接路径则更新。
             if(!MG.dist[i].visited && MG.arcs[now][i] != 0 && MG.dist[now].value + MG.arcs[now][i] < MG.dist[i].value){

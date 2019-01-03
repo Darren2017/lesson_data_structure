@@ -7,20 +7,20 @@ using namespace std;
 const int MAX_VERTEX_NUM = 20;
 
 typedef struct ArcNode{
-    int adjvex;
-    struct ArcNode *nextarc;
-    InfoType *info;
+    int adjvex;                         //该弧所指向的顶点的位置
+    struct ArcNode *nextarc;            //指向下一条弧的指针
+    InfoType *info;                     //相关信息，这里没啥用
 }ArcNode;
 
 typedef struct VNode{
-    VertexType data;
-    ArcNode *firstarc;
+    VertexType data;                   //顶点信息
+    ArcNode *firstarc;                  //第一条依附该顶点的弧
 }VNode, AdjList[MAX_VERTEX_NUM];
 
 typedef struct{
     AdjList vertices;
-    int vexnum, arcnum;
-    int kind;
+    int vexnum, arcnum;                 //顶点数，边数
+    int kind;                       //图的种类，没有用到
 } ALGraph;
 
 void CreateUDG(ALGraph &G);
